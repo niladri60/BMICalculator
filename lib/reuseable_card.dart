@@ -2,9 +2,9 @@ import 'package:flutter/material.dart';
 
 class ReuseableCards extends StatelessWidget {
   const ReuseableCards(
-      {super.key, required this.colour, this.cardChild, this.onPress}); //for initializing a property without required keyword beside the variable type name '?' should be added to make it required free.
+      {super.key, required this.colour, required this.cardChild, this.onPress}); //for initializing a property without required keyword beside the variable type name '?' should be added to make it required free.
   final Color colour;
-  final Widget? cardChild;          //like what has been used here & also the next line.
+  final Widget cardChild;          //like what has been used here & also the next line.
   final VoidCallback? onPress;     //here Function is replaced with VoidCallback
   @override
   Widget build(BuildContext context) {
