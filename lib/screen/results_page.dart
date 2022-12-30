@@ -4,8 +4,11 @@ import 'package:bmi/components/reuseable_card.dart';
 import 'package:bmi/components/bottom_button.dart';
 
 class ResultPage extends StatelessWidget {
-
-  const ResultPage({super.key, required this.bmiResult,required this.resultText,required this.interpretation});
+  const ResultPage(
+      {super.key,
+      required this.bmiResult,
+      required this.resultText,
+      required this.interpretation});
 
   final String bmiResult;
   final String resultText;
@@ -15,7 +18,7 @@ class ResultPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('BMI CALCULATOR'),
+        title: const Text('BMI CALCULATOR'),
       ),
       body: Column(
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -23,9 +26,9 @@ class ResultPage extends StatelessWidget {
         children: [
           Expanded(
             child: Container(
-              padding: EdgeInsets.all(20.0),
+              padding: const EdgeInsets.all(20.0),
               alignment: Alignment.bottomLeft,
-              child: Text(
+              child: const Text(
                 'Your Result',
                 style: kTitleTextStyle,
               ),
@@ -41,12 +44,20 @@ class ResultPage extends StatelessWidget {
                 children: [
                   Text(
                     resultText.toUpperCase(),
-                    style: kResultTextStyle,
+                    style: TextStyle(
+                      color: resultText == 'Overweight'
+                          ? Colors.redAccent
+                          : resultText == 'Normal'
+                              ? const Color(0xFF24D876)
+                              : Colors.yellow,
+                      fontSize: 22.0,
+                      fontWeight: FontWeight.bold,
+                    ),
                   ),
                   Text(
                     bmiResult,
-                    style:
-                        TextStyle(fontSize: 100.0, fontWeight: FontWeight.bold),
+                    style: const TextStyle(
+                        fontSize: 100.0, fontWeight: FontWeight.bold),
                   ),
                   Column(children: const [
                     Text(
@@ -63,7 +74,7 @@ class ResultPage extends StatelessWidget {
                   Text(
                     interpretation,
                     textAlign: TextAlign.center,
-                    style: TextStyle(
+                    style: const TextStyle(
                       fontSize: 20.0,
                     ),
                   ),

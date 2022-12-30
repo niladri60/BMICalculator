@@ -19,7 +19,7 @@ class BottomButton extends StatelessWidget {
         child: Center(
           child: Text(
             buttonTitle,
-            style: TextStyle(color: Colors.white, fontSize: 18.0),
+            style: const TextStyle(color: Colors.white, fontSize: 18.0),
           ),
         ),
       ),

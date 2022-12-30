@@ -48,7 +48,7 @@ class _InputPageState extends State<InputPage> {
                         // print('Male gender is selected.');
                       },
                       cardChild: const IconContent(
-                        icon: FontAwesomeIcons.mars,
+                        icon: FontAwesomeIcons.person,
                         label: 'MALE',
                       ),
                       colour: selectedGender == Gender.male
@@ -65,7 +65,7 @@ class _InputPageState extends State<InputPage> {
                         // print('Female gender is selected.');
                       },
                       cardChild: const IconContent(
-                        icon: FontAwesomeIcons.venus,
+                        icon: FontAwesomeIcons.personDress,
                         label: 'FEMALE',
                       ),
                       colour: selectedGender == Gender.female
