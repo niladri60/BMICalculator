@@ -6,6 +6,7 @@ import '../constants.dart';
 import 'results_page.dart';
 import '../components/bottom_button.dart';
 import '../components/roundIcon_button.dart';
+import 'package:bmi/calculator_brain.dart';
 
 enum Gender {
   male,
@@ -134,7 +135,7 @@ class _InputPageState extends State<InputPage> {
                       cardChild: Column(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
-                          Text(
+                          const Text(
                             'WEIGHT',
                             style: klabelTextStyle,
                           ),
@@ -153,7 +154,7 @@ class _InputPageState extends State<InputPage> {
                                   });
                                 },
                               ),
-                              SizedBox(
+                              const SizedBox(
                                 width: 10.0,
                               ),
                               RoundIconButton(
@@ -177,7 +178,7 @@ class _InputPageState extends State<InputPage> {
                       cardChild: Column(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
-                          Text(
+                          const Text(
                             'AGE',
                             style: klabelTextStyle,
                           ),
@@ -196,7 +197,7 @@ class _InputPageState extends State<InputPage> {
                                   });
                                 },
                               ),
-                              SizedBox(
+                              const SizedBox(
                                 width: 10.0,
                               ),
                               RoundIconButton(
@@ -219,9 +220,15 @@ class _InputPageState extends State<InputPage> {
             BottomButton(
               buttonTitle: 'CALCULATE YOUR BMI',
               onPressed: () {
+                CalculatorBrain obj =
+                    CalculatorBrain(height: height, weight: weight);
                 Navigator.push(
                   context,
-                  MaterialPageRoute(builder: (context) => ResultPage()),
+                  MaterialPageRoute(builder: (context) => ResultPage(
+                    bmiResult: obj.calculateBMI(),
+                    resultText: obj.getResult(),
+                    interpretation: obj.getInterpretation(),
+                  )),
                 );
               },
             ),
